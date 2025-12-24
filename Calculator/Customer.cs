@@ -8,9 +8,11 @@ namespace App
 {
     public class Customer
     {
+        public string Greeting { get; set; }
         public string GreetingAndCombineName(string firstName,string lastName)
         {
-            return $"Hello, {firstName} {lastName}";
+            Greeting = $"Hello, {firstName} {lastName}";
+            return Greeting;
         }
     }
 }

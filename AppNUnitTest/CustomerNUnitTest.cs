@@ -28,5 +28,18 @@ namespace AppNUnitTest
             Assert.That(result, Is.EqualTo(expectedValue));
             //ClassicAssert.AreEqual(expectedValue, result);
         }
+
+        [Test]
+        public void GreetingAndCombine_Greet_shouldBeNull()
+        {
+            //Arrange
+            Customer customer = new Customer();
+
+            //Act
+            //nothing needed
+
+            //Assert
+            ClassicAssert.IsNull(customer.Greeting);
+        }
     }
 }
