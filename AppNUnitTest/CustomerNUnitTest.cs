@@ -49,5 +49,36 @@ namespace AppNUnitTest
             //Assert
             ClassicAssert.IsNull(customer.Greeting);
         }
+
+        [Test]
+        public void Greeting_InputLastNameWhiteSpace_ReturnsGreetingNotNULL()
+        {
+            Customer customer = new Customer();
+            //Arrange
+            string firstName = "Mohamed";
+            string lastName = "";
+
+            //Act
+           string result =  customer.GreetingAndCombineName(firstName, lastName);
+
+            //Assert
+            ClassicAssert.IsNotNull(customer.Greeting);
+        }
+
+        [Test]
+        public void Greeting_EmptyFirstName_ThrowsException()
+        {
+            Customer customer = new Customer();
+            //Arrange
+            string firstName = "";
+            string lastName = "Mohamed";
+
+            //Act
+            var exceptionDetails = ClassicAssert.Throws<ArgumentException>(() => customer.GreetingAndCombineName(firstName, lastName));
+
+            // Assert
+            ClassicAssert.AreEqual("Empty first name", exceptionDetails.Message);
+            
+        }
     }
 }
