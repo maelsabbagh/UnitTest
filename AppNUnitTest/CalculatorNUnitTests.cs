@@ -75,5 +75,21 @@ namespace AppNUnitTest
             // it will compare the returned value of this method with expected result
             return result;
         }
+
+        [Test]
+        public void OddRanger_InputMinMaxRange_ReturnsValidRange()
+        {
+
+            //Arrange
+            Calculator calculator = new Calculator();
+            List<int> expectedOddRange = new List<int>() { 3, 5, 7,9 };
+
+
+            //Act
+            List<int> result = calculator.getOddRange(2, 10);
+
+            // Assert
+            Assert.That(result, Is.EquivalentTo(expectedOddRange));
+        }
     }
 }
