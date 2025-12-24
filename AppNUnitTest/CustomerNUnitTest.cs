@@ -12,13 +12,21 @@ namespace AppNUnitTest
     [TestFixture]
     public class CustomerNUnitTest
     {
+        private Customer customer;
+
+        [SetUp] 
+        public void setup() // to be run before any other test methods
+        {
+            customer = new Customer();
+        }
+
         [Test]
         [TestCase("Mohamed","Amr")]
         [TestCase("Ahmed", "Aly")]
         public void GreetingAndCombine_Test(string firstName,string lastName)
         {
             // Arrange
-            Customer customer = new Customer();
+            // already did in setup
 
             //Act
             string result = customer.GreetingAndCombineName(firstName, lastName);
@@ -33,7 +41,7 @@ namespace AppNUnitTest
         public void GreetingAndCombine_Greet_shouldBeNull()
         {
             //Arrange
-            Customer customer = new Customer();
+            // already did in setup
 
             //Act
             //nothing needed
